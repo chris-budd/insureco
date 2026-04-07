@@ -42,7 +42,7 @@ function PersonalInfoStep({ formData, updateField }) {
   return (
     <div className="signup-step">
       <div className="signup-step__header">
-        <h2 className="signup-step__title">Your Personal Information</h2>
+        <h2 className="signup-step__title">Personal Information</h2>
       </div>
       <p className="signup-step__description">Let's start with some basic information about you.</p>
 
