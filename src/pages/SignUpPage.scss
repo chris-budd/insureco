@@ -1,0 +1,371 @@
+@use '../styles/tokens' as *;
+
+// ─── Page wrapper ─────────────────────────────────────────────────────────────
+.signup-page {
+  min-height: 100vh;
+  background: var(--background-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// ─── Outer section (gradient bg + header + progress) ─────────────────────────
+.signup-outer {
+  width: 100%;
+  max-width: 703px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #f4f4f4 70.71%, #fff 0%);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  box-sizing: border-box;
+}
+
+// ─── Header banner ────────────────────────────────────────────────────────────
+.signup-header-banner {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a2191f 70.71%, #da1e28 0%);
+  box-shadow: 0 4px 12px 0 rgba(218, 30, 40, 0.15);
+  padding: 31px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  text-align: center;
+}
+
+.signup-banner__title {
+  color: #fff;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.signup-banner__subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 400px;
+}
+
+// ─── Progress bar container ───────────────────────────────────────────────────
+.signup-progress-bar {
+  border-radius: 4px;
+  border-top: 1px solid #da1e28;
+  background: #f4f4f4;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 18px;
+
+  // Override StepBreadcrumb to use compact horizontal layout matching the Figma
+  .step-breadcrumb {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
+
+// ─── Warning banner ───────────────────────────────────────────────────────────
+.signup-warning-banner {
+  width: 100%;
+  max-width: 703px;
+  padding: 13px 34px 13px 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #000;
+  background: #fff4b4;
+  box-sizing: border-box;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: #946c00;
+  }
+
+  &__message {
+    color: #946c00;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  &__dismiss {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #946c00;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ─── Form panel ───────────────────────────────────────────────────────────────
+.signup-form-panel {
+  width: 100%;
+  max-width: 703px;
+  padding: 24px 24px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-top: 5px solid #fb0c0c;
+  background: #f4f4f4;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+// ─── Step content ─────────────────────────────────────────────────────────────
+.signup-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__header {
+    padding-bottom: 11px;
+    border-bottom: 1px solid #fc0404;
+  }
+
+  &__title {
+    color: #000;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &__description {
+    color: #000;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+// ─── Insurance type tiles ─────────────────────────────────────────────────────
+.insurance-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.insurance-tile {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 16px;
+  background: var(--background-primary);
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s ease;
+
+  &:first-child {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  &:hover {
+    background: var(--background-hover);
+  }
+
+  &--selected {
+    background: var(--background-selected);
+    border-color: var(--interactive-primary);
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: -2px;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    color: var(--text-primary);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  &__title {
+    color: var(--text-primary);
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &__description {
+    color: var(--text-secondary);
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    margin: 0;
+  }
+}
+
+// ─── Action buttons ───────────────────────────────────────────────────────────
+.signup-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  padding-top: 26px;
+  border-top: 1px solid #da1e28;
+  flex-wrap: wrap;
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+  }
+}
+
+// ─── Carbon component overrides ───────────────────────────────────────────────
+.signup-form-panel {
+  // Text inputs
+  .cds--text-input-wrapper,
+  .cds--form-item {
+    width: 100%;
+  }
+
+  // Labels
+  .cds--label {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  // Select labels
+  .cds--select .cds--label {
+    font-weight: 700;
+  }
+
+  // Number input labels
+  .cds--number .cds--label {
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+
+  // Helper text
+  .cds--form__helper-text {
+    color: var(--text-helper, #6f6f6f);
+  }
+
+  // DatePicker full width
+  .cds--date-picker,
+  .cds--date-picker-container,
+  .cds--date-picker-input__wrapper {
+    width: 100%;
+  }
+
+  .cds--date-picker--single {
+    width: 100%;
+
+    .cds--date-picker-container {
+      width: 100%;
+    }
+  }
+
+  .cds--number {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cds--number__input-wrapper {
+    width: 100%;
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 672px) {
+  .signup-outer {
+    padding: 12px 16px;
+    gap: 20px;
+  }
+
+  .signup-header-banner {
+    padding: 20px 16px;
+  }
+
+  .signup-banner__title {
+    font-size: 22px;
+  }
+
+  .signup-banner__subtitle {
+    font-size: 14px;
+  }
+
+  .signup-form-panel {
+    padding: 16px 16px 20px;
+  }
+
+  .signup-warning-banner {
+    padding: 12px 16px;
+  }
+
+  .signup-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    &__right {
+      flex-direction: column;
+      align-items: stretch;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .cds--btn {
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .insurance-tile {
+    gap: 12px;
+
+    &__title {
+      font-size: 17px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .signup-banner__title {
+    font-size: 18px;
+  }
+}
