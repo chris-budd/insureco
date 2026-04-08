@@ -17,6 +17,7 @@ import AddPropertyPage from "./pages/business/AddPropertyPage";
 import FleetPage from "./pages/business/FleetPage";
 import VehicleDetailPage from "./pages/business/VehicleDetailPage";
 import AddVehiclePage from "./pages/business/AddVehiclePage";
+import ClaimsDashboardPage from "./pages/business/ClaimsDashboardPage";
 import FileClaimPage from "./pages/business/FileClaimPage";
 import MakePaymentPage from "./pages/business/MakePaymentPage";
 import MapPage from "./pages/business/MapPage";
@@ -44,7 +45,7 @@ export default function App() {
         <Route path="/business/fleet/add" element={<AddVehiclePage />} />
         <Route path="/business/fleet/:vehicleId" element={<VehicleDetailPage />} />
         <Route path="/business/map" element={<MapPage />} />
-        <Route path="/business/claims" element={<BusinessComingSoon />} />
+        <Route path="/business/claims" element={<ClaimsDashboardPage />} />
         <Route path="/business/payments" element={<BusinessComingSoon />} />
         <Route path="/business/file-claim" element={<FileClaimPage />} />
         <Route path="/business/make-payment" element={<MakePaymentPage />} />
