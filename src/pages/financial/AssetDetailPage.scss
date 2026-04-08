@@ -1,0 +1,152 @@
+@use '../../styles/tokens' as *;
+
+.asset-detail-page {
+  padding: var(--spacing-05) 0 var(--spacing-10);
+}
+
+.asset-detail-not-found {
+  padding: var(--spacing-09);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.asset-detail-header {
+  padding-bottom: var(--spacing-06);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--spacing-06);
+}
+
+.asset-detail-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-05);
+  margin-top: var(--spacing-04);
+}
+
+.asset-detail-id-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-03);
+  margin-bottom: var(--spacing-02);
+}
+
+.asset-detail-id {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.asset-detail-name {
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.asset-detail-summary {
+  display: flex;
+  gap: var(--spacing-07);
+  flex-wrap: wrap;
+}
+
+.asset-summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.asset-summary-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-tertiary);
+}
+
+.asset-summary-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+
+  &.asset-summary-value--claims {
+    color: var(--interactive-primary);
+  }
+}
+
+// ── Section tiles ─────────────────────────────────────────────────────────────
+.asset-detail-tile {
+  height: 100%;
+}
+
+.asset-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-01);
+}
+
+.asset-section-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-05);
+}
+
+// ── Claims table ──────────────────────────────────────────────────────────────
+.claim-status-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-02);
+}
+
+.status-icon {
+  &.status-icon--success { color: var(--color-success, #198038); }
+  &.status-icon--warning { color: var(--color-warning, #d6a000); }
+  &.status-icon--error   { color: var(--interactive-primary);    }
+}
+
+// ── Document / media list ─────────────────────────────────────────────────────
+.asset-doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-03);
+}
+
+.asset-doc-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-04);
+  padding: var(--spacing-03) 0;
+  border-bottom: 1px solid var(--border-subtle);
+
+  &:last-child { border-bottom: none; }
+}
+
+.asset-doc-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-secondary);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.asset-doc-info {
+  flex: 1;
+}
+
+.asset-doc-name {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin: 0 0 2px;
+}
+
+.asset-doc-meta {
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}

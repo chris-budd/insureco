@@ -1,0 +1,336 @@
+// The Crazy dashboard is an intentional design concept using a dark terminal
+// aesthetic. Colors are hardcoded to preserve the dramatic visual impact.
+// This is a creative showcase variant, not a production-theming component.
+
+$neon-green: #3ddc84;
+$neon-red:   #ff3b4a;
+$bg-base:    #0a0a0a;
+$bg-panel:   #0e0e0e;
+$border:     #1a1a1a;
+$text-dim:   #444444;
+$text-mid:   #777777;
+$text-light: #c8c8c8;
+$mono:       'IBM Plex Mono', 'Courier New', monospace;
+
+// ── Root ──────────────────────────────────────────────────────────────────────
+.crazy-dashboard {
+  background: $bg-base;
+  min-height: 100vh;
+  color: $text-light;
+  font-family: $mono;
+}
+
+// ── Back button ───────────────────────────────────────────────────────────────
+.crazy-back-btn {
+  display: block;
+  background: none;
+  border: none;
+  color: $text-dim;
+  font-size: 0.6875rem;
+  font-family: $mono;
+  cursor: pointer;
+  padding: 1rem 1.5rem 0;
+  letter-spacing: 0.06em;
+  transition: color 0.18s;
+
+  &:hover { color: $text-light; }
+}
+
+// ── Hero band ─────────────────────────────────────────────────────────────────
+.crazy-hero {
+  background: linear-gradient(180deg, #0f0a0a 0%, $bg-base 100%);
+  border-bottom: 1px solid $border;
+  padding-bottom: 2rem;
+}
+
+.crazy-hero-body {
+  text-align: center;
+  padding: 1rem 1.5rem 0;
+}
+
+.crazy-hero-eyebrow {
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  color: $text-dim;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.crazy-ratio-display {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.crazy-ratio-num {
+  font-size: clamp(4.5rem, 12vw, 8.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.crazy-ratio-pct {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+}
+
+.ratio--healthy { color: $neon-green; }
+.ratio--danger  { color: $neon-red;   }
+
+.crazy-hero-twin-metrics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.crazy-twin-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.crazy-twin-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: $text-dim;
+}
+
+.crazy-twin-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.crazy-twin-divider {
+  color: $border;
+  font-size: 1.5rem;
+}
+
+.crazy-green { color: $neon-green; }
+.crazy-red   { color: $neon-red;   }
+
+// ── Main 2-column grid ────────────────────────────────────────────────────────
+.crazy-main-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  border-bottom: 1px solid $border;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Portfolio panels (left col) ───────────────────────────────────────────────
+.crazy-panels-col {
+  border-right: 1px solid $border;
+
+  @media (max-width: 860px) {
+    border-right: none;
+    border-bottom: 1px solid $border;
+  }
+}
+
+.crazy-portfolio-panel {
+  padding: 1.5rem;
+  border-bottom: 1px solid $border;
+
+  &:last-child { border-bottom: none; }
+}
+
+.crazy-panel-type {
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  color: $text-dim;
+  margin-bottom: 1rem;
+}
+
+.crazy-panel-metrics {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.crazy-panel-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.crazy-panel-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  color: $text-dim;
+}
+
+.crazy-panel-value {
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.crazy-loss-track {
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  margin-bottom: 0.4rem;
+  overflow: hidden;
+}
+
+.crazy-loss-fill {
+  height: 100%;
+  background: $neon-red;
+  border-radius: 2px;
+  transition: width 0.9s ease;
+}
+
+.crazy-loss-ratio-label {
+  font-size: 0.5625rem;
+  color: $text-dim;
+  letter-spacing: 0.04em;
+}
+
+// ── Chart column (right col) ──────────────────────────────────────────────────
+.crazy-chart-col {
+  padding: 1.5rem;
+  background: $bg-base;
+}
+
+.crazy-chart-label {
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  color: $text-dim;
+  margin-bottom: 0.5rem;
+}
+
+.crazy-chart-legend {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.6875rem;
+  color: $text-mid;
+  margin-bottom: 1rem;
+}
+
+.crazy-legend-swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.crazy-legend-swatch--green { background: $neon-green; }
+.crazy-legend-swatch--red   { background: $neon-red;   }
+
+.crazy-tooltip {
+  background: #111111;
+  border: 1px solid #1e1e1e;
+  padding: 0.5rem 0.75rem;
+  font-family: $mono;
+  font-size: 0.6875rem;
+  color: $text-light;
+
+  p { margin: 2px 0; }
+}
+
+// ── Bottom: high-risk assets ──────────────────────────────────────────────────
+.crazy-bottom-section {
+  padding: 1.5rem;
+}
+
+.crazy-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.crazy-section-title {
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  color: $text-dim;
+}
+
+.crazy-section-sub {
+  font-size: 0.5625rem;
+  color: #2a2a2a;
+  letter-spacing: 0.04em;
+}
+
+.crazy-asset-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: $border;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 520px) { grid-template-columns: 1fr; }
+}
+
+.crazy-asset-card {
+  background: $bg-panel;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: background 0.14s;
+  border-top: 2px solid transparent;
+
+  &:hover { background: #131313; }
+
+  &.crazy-asset-card--critical { border-top-color: $neon-red;   }
+  &.crazy-asset-card--high     { border-top-color: #f1c21b;     }
+  &.crazy-asset-card--moderate { border-top-color: $neon-green; }
+}
+
+.crazy-asset-rank {
+  font-size: 0.5625rem;
+  color: #2a2a2a;
+  margin-bottom: 0.75rem;
+}
+
+.crazy-asset-id {
+  font-size: 0.625rem;
+  color: $text-dim;
+  margin-bottom: 0.2rem;
+}
+
+.crazy-asset-name {
+  font-size: 0.75rem;
+  color: $text-light;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+}
+
+.crazy-asset-category {
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: $text-dim;
+  margin-bottom: 1rem;
+}
+
+.crazy-asset-claims-amount {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: $neon-red;
+  line-height: 1;
+}
+
+.crazy-asset-claims-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: $text-dim;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.crazy-risk-badge {
+  display: inline-block;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+
+  &.crazy-risk-badge--critical { background: rgba(255,59,74,0.12);  color: $neon-red;   }
+  &.crazy-risk-badge--high     { background: rgba(241,194,27,0.12); color: #f1c21b;     }
+  &.crazy-risk-badge--moderate { background: rgba(61,220,132,0.12); color: $neon-green; }
+}
