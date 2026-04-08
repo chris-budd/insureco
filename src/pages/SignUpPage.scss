@@ -1,0 +1,339 @@
+@use '../styles/tokens' as *;
+
+// ============================================================
+// SignUpPage – multi-step signup flow
+// Matches the Figma design for all 5 steps
+// ============================================================
+
+.signup-page {
+  min-height: 100%;
+  padding: var(--spacing-05);
+  background: linear-gradient(135deg, #f4f4f4 70.71%, #fff 0%);
+
+  @media (max-width: 671px) {
+    padding: var(--spacing-04);
+  }
+}
+
+.signup-page__inner {
+  max-width: 703px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-05);
+}
+
+// ============================================================
+// Header Banner
+// ============================================================
+.signup-page__header {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a2191f 70.71%, #da1e28 0%);
+  box-shadow: 0 4px 12px 0 rgba(218, 30, 40, 0.15);
+  padding: 31px 24px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+}
+
+.signup-page__title {
+  color: #fff;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+
+  @media (max-width: 671px) {
+    font-size: 22px;
+  }
+}
+
+.signup-page__subtitle {
+  color: #fff;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.95;
+
+  @media (max-width: 671px) {
+    font-size: 14px;
+  }
+}
+
+// ============================================================
+// Progress Indicator
+// ============================================================
+.signup-page__progress {
+  border-radius: 4px;
+  border-top: 1px solid #da1e28;
+  background: var(--background-secondary);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 18px;
+}
+
+// ============================================================
+// Warning Banner
+// ============================================================
+.signup-page__warning-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 24px;
+  border: 1px solid #000;
+  background: #fff4b4;
+  gap: var(--spacing-04);
+  flex-wrap: wrap;
+}
+
+.warning-banner__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.warning-banner__text {
+  color: #946c00;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.571;
+}
+
+.warning-banner__dismiss {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #946c00;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.571;
+  padding: 0;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ============================================================
+// Form Card
+// ============================================================
+.signup-page__form-card {
+  border-top: 5px solid #fb0c0c;
+  background: var(--background-secondary);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// ============================================================
+// Step Content
+// ============================================================
+.signup-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-05);
+  padding: 24px 24px 0;
+}
+
+.signup-step__heading-wrap {
+  padding-bottom: 11px;
+  border-bottom: 1px solid #fc0404;
+}
+
+.signup-step__heading {
+  color: var(--text-primary);
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+
+  @media (max-width: 671px) {
+    font-size: 20px;
+  }
+}
+
+.signup-step__description {
+  color: var(--text-primary);
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.signup-step__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-05);
+  padding-bottom: var(--spacing-05);
+}
+
+.signup-step__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-05);
+
+  @media (max-width: 671px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ============================================================
+// Insurance Type Selection Tiles
+// ============================================================
+.insurance-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+}
+
+.insurance-tile {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: var(--spacing-05);
+  background: var(--background-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: border-color 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    background: var(--background-hover);
+    border-color: var(--border-strong);
+  }
+
+  &--selected {
+    border-color: var(--interactive-primary);
+    background: var(--background-selected);
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: -2px;
+  }
+}
+
+.insurance-tile__icon {
+  flex-shrink: 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+.insurance-tile__icons {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  color: var(--text-primary);
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+.insurance-tile__content {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex: 1;
+  min-width: 0;
+}
+
+.insurance-tile__title {
+  color: var(--text-primary);
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  @media (max-width: 671px) {
+    font-size: 16px;
+  }
+}
+
+.insurance-tile__desc {
+  color: var(--text-primary);
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+// ============================================================
+// Footer Buttons
+// ============================================================
+.signup-page__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 24px 25px;
+  border-top: 1px solid #da1e28;
+  gap: var(--spacing-04);
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.signup-page__footer-left {
+  display: flex;
+  gap: var(--spacing-04);
+}
+
+.signup-page__footer-right {
+  display: flex;
+  gap: var(--spacing-04);
+  margin-left: auto;
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+}
+
+// ============================================================
+// Carbon component overrides – keep form fields themed
+// ============================================================
+.signup-page {
+  // Ensure field backgrounds adapt to theme
+  .cds--text-input,
+  .cds--number__input-wrapper input,
+  .cds--select-input {
+    background-color: var(--field-background) !important;
+    color: var(--field-text) !important;
+  }
+
+  .cds--label {
+    color: var(--text-primary) !important;
+  }
+
+  .cds--form__helper-text {
+    color: var(--text-secondary) !important;
+  }
+
+  // DatePicker calendar popup theming
+  .cds--date-picker__input {
+    background-color: var(--field-background) !important;
+    color: var(--field-text) !important;
+  }
+
+  // NumberInput label color
+  .cds--number .cds--label {
+    color: var(--text-primary) !important;
+  }
+}
