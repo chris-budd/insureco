@@ -5,7 +5,7 @@ import {
   DataTable, Table, TableHead, TableRow, TableHeader, TableBody, TableCell,
   ContentSwitcher, Switch, Dropdown,
 } from '@carbon/react';
-import { ArrowLeft, TrendingUp } from '@carbon/icons-react';
+import { ArrowLeft, ArrowUp } from '@carbon/icons-react';
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
 } from 'recharts';
@@ -122,7 +122,7 @@ export default function FinancialDashboardSafe() {
             <p className="kpi-label">Total Owed (YTD)</p>
             <p className="kpi-value">{formatCurrency(data.totalOwed, true)}</p>
             <p className="kpi-trend kpi-trend--positive">
-              <TrendingUp size={13} /> +12.4% vs prior year
+              <ArrowUp size={13} /> +12.4% vs prior year
             </p>
             <div className="kpi-split">
               <span>Auto: {formatCurrency(data.autoPremiums, true)}</span>
@@ -136,7 +136,7 @@ export default function FinancialDashboardSafe() {
             <p className="kpi-label">Total Claimed (YTD)</p>
             <p className="kpi-value">{formatCurrency(data.totalClaimed, true)}</p>
             <p className="kpi-trend kpi-trend--negative">
-              <TrendingUp size={13} /> +8.1% vs prior year
+              <ArrowUp size={13} /> +8.1% vs prior year
             </p>
             <div className="kpi-split">
               <span>Auto: {formatCurrency(data.autoClaims, true)}</span>
