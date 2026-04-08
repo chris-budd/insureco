@@ -20,6 +20,11 @@ import AddVehiclePage from "./pages/business/AddVehiclePage";
 import FileClaimPage from "./pages/business/FileClaimPage";
 import MakePaymentPage from "./pages/business/MakePaymentPage";
 import MapPage from "./pages/business/MapPage";
+import FinancialDashboardHub from "./pages/financial/FinancialDashboardHub";
+import FinancialDashboardSafe from "./pages/financial/FinancialDashboardSafe";
+import FinancialDashboardSleek from "./pages/financial/FinancialDashboardSleek";
+import FinancialDashboardCrazy from "./pages/financial/FinancialDashboardCrazy";
+import AssetDetailPage from "./pages/financial/AssetDetailPage";
 
 export default function App() {
   return (
@@ -48,6 +53,13 @@ export default function App() {
         <Route path="/business/payments" element={<BusinessComingSoon />} />
         <Route path="/business/file-claim" element={<FileClaimPage />} />
         <Route path="/business/make-payment" element={<MakePaymentPage />} />
+
+        {/* Financial Dashboard Variations */}
+        <Route path="/financial-dashboard" element={<FinancialDashboardHub />} />
+        <Route path="/financial-dashboard/safe" element={<FinancialDashboardSafe />} />
+        <Route path="/financial-dashboard/sleek" element={<FinancialDashboardSleek />} />
+        <Route path="/financial-dashboard/crazy" element={<FinancialDashboardCrazy />} />
+        <Route path="/financial-dashboard/asset/:assetId" element={<AssetDetailPage />} />
       </Routes>
     </Layout>
   );
