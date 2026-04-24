@@ -16,6 +16,16 @@
  */
 export function formatDateForInput(dateInput) {
   if (!dateInput) return '';
+
+  // ISO date strings (YYYY-MM-DD) are parsed by new Date() as UTC midnight.
+  // Reading them back with getMonth()/getDate() uses local time, which shifts
+  // the date by one day in any timezone behind UTC (e.g. all US timezones).
+  // Reformat directly from the string to avoid the timezone shift entirely.
+  if (typeof dateInput === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dateInput)) {
+    const [year, month, day] = dateInput.split('-');
+    return `${month}/${day}/${year}`;
+  }
+
   const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
   if (isNaN(date.getTime())) return '';
   const month = String(date.getMonth() + 1).padStart(2, '0');
