@@ -264,7 +264,7 @@ export default function SignUpPage() {
 
 function getStepTitle(key) {
   switch (key) {
-    case STEP_KEYS.PERSONAL:       return 'Your Personal Information';
+    case STEP_KEYS.PERSONAL:       return 'Personal Information';
     case STEP_KEYS.ADDRESS:        return 'Your Address';
     case STEP_KEYS.INSURANCE_TYPE: return 'What Will You Insure';
     case STEP_KEYS.CAR_DETAILS:    return 'Car Details';
