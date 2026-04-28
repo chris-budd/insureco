@@ -73,7 +73,7 @@ export default function LandingPage() {
           <Column lg={16} md={8} sm={4}>
             <div className="hero-content">
               <Heading className="hero-heading">
-                Protect Your Future with Confidence
+                Confidence
               </Heading>
               <p className="hero-tagline">
                 Comprehensive car and home insurance designed for the modern world. 
@@ -86,7 +86,7 @@ export default function LandingPage() {
                   onClick={() => navigate('/signup')}
                   renderIcon={ArrowRight}
                 >
-                  Sign Up Now
+                  Sign Up
                 </Button>
                 <Button
                   kind="secondary"
