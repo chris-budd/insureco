@@ -86,7 +86,7 @@ export default function LandingPage() {
                   onClick={() => navigate('/signup')}
                   renderIcon={ArrowRight}
                 >
-                  Sign Up Now
+                  Sign Up
                 </Button>
                 <Button
                   kind="secondary"
