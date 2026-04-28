@@ -60,6 +60,21 @@
     gap: var(--spacing-05);
     justify-content: center;
     flex-wrap: wrap;
+
+    .cds--btn--primary {
+      background-color: #0f62fe;
+      border-color: #0f62fe;
+
+      &:hover {
+        background-color: #0050e6;
+        border-color: #0050e6;
+      }
+
+      &:active {
+        background-color: #002d9c;
+        border-color: #002d9c;
+      }
+    }
   }
 }
 
