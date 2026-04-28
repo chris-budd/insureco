@@ -39,7 +39,7 @@
   }
 
   .hero-heading {
-    font-size: var(--heading-h1-size);
+    font-size: clamp(2.625rem, 6vw, 4.75rem);
     font-weight: var(--heading-h1-weight);
     line-height: var(--heading-h1-line-height);
     margin-bottom: var(--spacing-05);
@@ -349,7 +349,7 @@
     background-position: 65% center;
 
     .hero-heading {
-      font-size: var(--heading-h2-size);
+      font-size: 2.625rem;
     }
 
     .hero-actions {
