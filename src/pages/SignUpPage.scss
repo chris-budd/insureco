@@ -1,0 +1,423 @@
+@use '../styles/tokens' as *;
+
+// ============================================================
+// SignUpPage - Multi-step insurance sign-up flow
+// Matches Figma design with red gradient header and form cards
+// ============================================================
+
+.signup-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4f4f4 70.71%, #fff 0%);
+  padding: 16px;
+
+  @media (min-width: 672px) {
+    padding: 24px 32px;
+  }
+}
+
+.signup-wrapper {
+  max-width: 671px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// ============================================================
+// Header Banner
+// ============================================================
+
+.signup-header-banner {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a2191f 70.71%, #da1e28 0%);
+  box-shadow: 0 4px 12px 0 rgba(218, 30, 40, 0.15);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  @media (min-width: 672px) {
+    padding: 31px 48px 32px;
+  }
+}
+
+.signup-banner-title {
+  color: #fff;
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+
+  @media (min-width: 672px) {
+    font-size: 28px;
+  }
+}
+
+.signup-banner-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+
+  @media (min-width: 672px) {
+    font-size: 16px;
+  }
+}
+
+// ============================================================
+// Progress Indicator Container
+// ============================================================
+
+.signup-progress-container {
+  border-radius: 4px;
+  border-top: 1px solid #da1e28;
+  background: #f4f4f4;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+
+  // Override StepBreadcrumb styles for this context
+  .step-breadcrumb {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .step-breadcrumb__item {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .step-breadcrumb__label {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: 480px) {
+      font-size: 12px;
+    }
+
+    @media (min-width: 672px) {
+      font-size: 14px;
+    }
+  }
+
+  .step-breadcrumb__line {
+    flex: 0.5;
+    min-width: 8px;
+  }
+}
+
+// ============================================================
+// Warning Banner
+// ============================================================
+
+.signup-warning-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff4b4;
+  border: 1px solid #000;
+  margin-bottom: 0;
+  gap: 12px;
+
+  @media (min-width: 672px) {
+    padding: 13px 34px 13px 33px;
+  }
+}
+
+.signup-warning-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.signup-warning-icon {
+  color: #946c00;
+  flex-shrink: 0;
+}
+
+.signup-warning-text {
+  color: #946c00;
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.57;
+}
+
+.signup-warning-dismiss {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #946c00;
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.57;
+  padding: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ============================================================
+// Form Card
+// ============================================================
+
+.signup-form-card {
+  border-top: 5px solid #fb0c0c;
+  background: #f4f4f4;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 24px;
+
+  @media (min-width: 672px) {
+    padding: 24px 24px 25px;
+  }
+
+  // Override Carbon form styles for proper theming
+  .cds--form {
+    width: 100%;
+  }
+
+  // Override Carbon TextInput to use design tokens
+  .cds--text-input {
+    background-color: var(--field-background, #f4f4f4) !important;
+    color: var(--field-text, #161616) !important;
+  }
+
+  .cds--text-input-wrapper {
+    background-color: var(--field-background, #f4f4f4) !important;
+  }
+
+  // Override Carbon Select
+  .cds--select-input {
+    background-color: var(--field-background, #f4f4f4) !important;
+    color: var(--field-text, #161616) !important;
+  }
+
+  // Override Carbon NumberInput
+  .cds--number input[type='number'] {
+    background-color: var(--field-background, #f4f4f4) !important;
+    color: var(--field-text, #161616) !important;
+  }
+}
+
+// ============================================================
+// Step Content
+// ============================================================
+
+.signup-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.signup-step-header {
+  border-bottom: 1px solid #fc0404;
+  padding-bottom: 11px;
+  margin-bottom: 16px;
+}
+
+.signup-step-title {
+  color: var(--text-primary, #000);
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+
+  @media (min-width: 672px) {
+    font-size: 24px;
+  }
+}
+
+.signup-step-description {
+  color: var(--text-primary, #000);
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+// ============================================================
+// Insurance Type Tiles
+// ============================================================
+
+.signup-insurance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.signup-insurance-tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--background-primary, #fff);
+  border: none;
+  border-bottom: 1px solid var(--border-subtle, #e0e0e0);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background-color 70ms ease;
+
+  &:first-child {
+    border-top: 1px solid var(--border-subtle, #e0e0e0);
+  }
+
+  &:hover {
+    background: var(--background-hover, #e8e8e8);
+  }
+
+  &:focus {
+    outline: 2px solid var(--interactive-primary, #da1e28);
+    outline-offset: -2px;
+  }
+
+  &--selected {
+    background: #fff0f1;
+    border-left: 3px solid var(--interactive-primary, #da1e28);
+
+    .signup-insurance-icons {
+      color: var(--interactive-primary, #da1e28);
+    }
+
+    .signup-insurance-title {
+      color: var(--interactive-primary, #da1e28);
+    }
+  }
+}
+
+.signup-insurance-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-primary, #000);
+  flex-shrink: 0;
+}
+
+.signup-insurance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.signup-insurance-title {
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary, #000);
+
+  @media (min-width: 672px) {
+    font-size: 20px;
+  }
+}
+
+.signup-insurance-desc {
+  font-family: 'IBM Plex Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  color: var(--text-secondary, #525252);
+}
+
+// ============================================================
+// Navigation Actions
+// ============================================================
+
+.signup-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #da1e28;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .cds--btn {
+      width: 100%;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+  }
+}
+
+.signup-btn-cancel {
+  // Tertiary style is handled by kind="tertiary"
+}
+
+.signup-btn-back {
+  // Secondary style is handled by kind="secondary"
+}
+
+.signup-btn-next {
+  // Primary style is handled by kind="primary"
+  background-color: var(--interactive-primary, #da1e28) !important;
+
+  &:hover {
+    background-color: var(--interactive-hover, #a2191f) !important;
+  }
+}
+
+// ============================================================
+// Dark theme overrides
+// ============================================================
+
+:root[data-carbon-theme='g90'],
+:root[data-carbon-theme='g100'] {
+  .signup-page {
+    background: linear-gradient(135deg, #262626 70.71%, #161616 0%);
+  }
+
+  .signup-form-card {
+    background: #262626;
+    border-top-color: #da1e28;
+  }
+
+  .signup-progress-container {
+    background: #262626;
+  }
+
+  .signup-warning-banner {
+    background: #3a2c00;
+    border-color: #946c00;
+
+    .signup-warning-text,
+    .signup-warning-icon,
+    .signup-warning-dismiss {
+      color: #f1c21b;
+    }
+  }
+
+  .signup-insurance-tile {
+    background: #393939;
+
+    &:hover {
+      background: #4c4c4c;
+    }
+
+    &--selected {
+      background: #2d1215;
+    }
+  }
+}
