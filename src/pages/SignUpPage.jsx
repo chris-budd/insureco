@@ -200,7 +200,7 @@ export default function SignUpPage() {
             {currentStepKey === 'personal' && (
               <div className="signup-step">
                 <div className="signup-step-header">
-                  <h2 className="signup-step-title">Personal Information</h2>
+                  <h2 className="signup-step-title">Your Personal Information</h2>
                 </div>
                 <p className="signup-step-description">
                   Let&apos;s start with some basic information about you.
